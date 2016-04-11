@@ -44,7 +44,7 @@ def buildlineartable():
 if __name__ == "__main__":
     output = ""
     for i in range(2**16):
-        output+=","+str(sbox0(i))
-    f = open("output.txt", "w")
+        output+=str(sbox0(i))+","
+    f = open("sbox0.txt", "w")
     f.write(output)
     f.close()
