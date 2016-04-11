@@ -2,6 +2,8 @@
 #include "sbox0_definition.h"
 #include "print_table.h"
 
+int linear_bias_table[SBOX_INPUT_SIZE][SBOX_OUTPUT_SIZE]= {{0}};
+
 int is_linear_relation_true(int input_bits, int output_bits, int sbox_input, int sbox_output) {
 
     int i,input_relation_value=0,output_relation_value=0,mask;
@@ -30,7 +32,6 @@ int is_linear_relation_true(int input_bits, int output_bits, int sbox_input, int
 int main (int argc, char* argv[]) {
     validate_args(argc, argv);
     int input_relation_bits, output_relation_bits, sbox_input;
-    int linear_bias_table[SBOX_INPUT_SIZE][SBOX_OUTPUT_SIZE]= {{0}};
     /* compute how many times the linear relations hold for all the possible sbox inputs */
     for (input_relation_bits=0; input_relation_bits<(SBOX_INPUT_SIZE); input_relation_bits++) {
         for (output_relation_bits=0; output_relation_bits<SBOX_OUTPUT_SIZE; output_relation_bits++) {

@@ -6,10 +6,10 @@ print_table.o: print_table.c sbox_definition.h print_table.h
 	gcc -c print_table.c
 
 linbiasgen: linbiasgen.c sbox_definition.h print_table.o latex_lex.o
-	gcc -ggdb linbiasgen.c print_table.o latex_lex.o -o linbiasgen
+	gcc -O2 -march=native -pipe linbiasgen.c print_table.o latex_lex.o -o linbiasgen
 
 diffbiasgen: diffbiasgen.c sbox_definition.h print_table.o latex_lex.o
-	gcc diffbiasgen.c print_table.o latex_lex.o -o diffbiasgen
+	gcc -O2 -march=native -pipe diffbiasgen.c print_table.o latex_lex.o -o diffbiasgen
 
 latex_lex.o: prettyprint.l
 	flex prettyprint.l
